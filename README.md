@@ -1,4 +1,4 @@
-# Dashboard To-Do List
+# To-Do Dashboard Widget
 
 Dashboard widget for site-maintenance to-dos: assign users, set priority and due dates, link a related post, and mark complete.
 

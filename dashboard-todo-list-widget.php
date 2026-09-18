@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Dashboard To-Do List
+ * Plugin Name: To-Do Dashboard Widget
  * Plugin URI: https://martech.zone/wordpress-plugin-to-do-widget/
  * Description: A dashboard to-do list with assignments, priorities, due dates, related posts, and completion tracking. Lives on the WordPress dashboard.
  * Version: 1.0.0
