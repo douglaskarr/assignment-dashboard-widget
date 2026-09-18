@@ -1,0 +1,19 @@
+/* File: /assets/css/adminbar.css */
+
+/* Match EDD / WooCommerce badge styling */
+#wp-admin-bar-mtz-todo-adminbar .mtz-todo-count{
+	background:#d63638;
+	color:#fff;
+	border-radius:10px;
+	font-size:11px;
+	font-weight:600;
+	line-height:1;
+	padding:3px 5px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+/* Ensure clean spacing next to label */
+#wp-admin-bar-mtz-todo-adminbar .ab-label{
+	display:inline-block;
+}

@@ -1,0 +1,159 @@
+/* File: /assets/css/dashboard.css */
+
+.mtz-todo-toolbar{
+	margin-bottom:10px;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	flex-wrap:wrap;
+	gap:8px;
+}
+
+.mtz-todo-toolbar-left,
+.mtz-todo-toolbar-right{
+	display:flex;
+	align-items:center;
+}
+
+#mtz-todo-modal label{
+	display:block;
+	margin-top:12px;
+	font-weight:600;
+}
+
+#mtz-todo-modal input[type="text"],
+#mtz-todo-modal input[type="date"],
+#mtz-todo-modal textarea,
+#mtz-todo-modal select{
+	width:100%;
+	box-sizing:border-box;
+}
+
+.mtz-checkbox-row{
+	margin-top:12px;
+	display:flex;
+	align-items:center;
+	gap:8px;
+}
+
+#mtz-todo-modal input[type="checkbox"]{
+	width:auto;
+	margin:0;
+}
+
+/* Sortable columns */
+#mtz-todo-table{
+	width:100%;
+	table-layout:fixed;
+}
+
+#mtz-todo-table thead th.mtz-sort{
+	cursor:pointer;
+	user-select:none;
+	white-space:nowrap;
+}
+
+#mtz-todo-table thead th.mtz-sort::after{
+	content:"";
+	display:inline-block;
+	margin-left:6px;
+	vertical-align:middle;
+	border-left:4px solid transparent;
+	border-right:4px solid transparent;
+	border-top:0;
+	border-bottom:0;
+}
+
+#mtz-todo-table thead th.mtz-sort.mtz-sort-asc::after{
+	border-bottom:6px solid currentColor;
+}
+
+#mtz-todo-table thead th.mtz-sort.mtz-sort-desc::after{
+	border-top:6px solid currentColor;
+}
+
+.mtz-sort-icon{
+	margin-left:4px;
+	font-size:11px;
+	opacity:0.65;
+}
+
+/* === RESPONSIVE WIDGET FIXES === */
+
+#mtz-todo-table th:last-child,
+#mtz-todo-table td:last-child{
+	width:72px;
+	text-align:center;
+}
+
+/* Allow wrapping in content-heavy columns */
+#mtz-todo-table td{
+	vertical-align:top;
+	word-wrap:break-word;
+	overflow-wrap:break-word;
+	white-space:normal;
+}
+
+/* To-Do title wrapping */
+#mtz-todo-table td:nth-child(2) a{
+	display:block;
+	white-space:normal;
+	line-height:1.4;
+}
+
+/* Assigned + Due columns wrap cleanly */
+#mtz-todo-table td:nth-child(3),
+#mtz-todo-table td:nth-child(4){
+	white-space:normal;
+}
+
+/* Prevent widget overflow */
+#mtz-todo-widget{
+	max-width:100%;
+	overflow:hidden;
+}
+
+/* View modal formatting */
+#mtz-todo-view-modal{
+	line-height:1.6;
+}
+
+.mtz-view-line{
+	margin-bottom:14px;
+}
+
+.mtz-view-line strong{
+	margin-right:6px;
+}
+
+.mtz-view-line a{
+	text-decoration:underline;
+}
+
+/* View Completed checkbox */
+.mtz-view-completed{
+	display:flex;
+	align-items:center;
+	gap:6px;
+	font-weight:500;
+	white-space:nowrap;
+}
+
+#mtz-todo-table{
+	width:100%;
+	table-layout:fixed;
+}
+
+/* Completed */
+.mtz-completed-row a::before{
+	content:"✓";
+	color:#2e7d32;
+	font-weight:700;
+	margin-right:6px;
+}
+
+/* Responsive safety */
+#mtz-todo-widget{
+	max-width:100%;
+	overflow:hidden;
+}

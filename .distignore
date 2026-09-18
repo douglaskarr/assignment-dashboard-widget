@@ -1,0 +1,10 @@
+/.git
+/.github
+/.wordpress-org
+/bin
+/tests
+/vendor
+.distignore
+.gitignore
+.gitattributes
+README.md
