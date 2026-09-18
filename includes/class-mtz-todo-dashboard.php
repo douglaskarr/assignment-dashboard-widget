@@ -32,7 +32,7 @@ class MTZ_Todo_Dashboard {
 
 		wp_add_dashboard_widget(
 			'mtz_todo_widget',
-			__( 'To-Do List', 'wordpress-dashboard-to-do-list' ),
+			__( 'To-Do List', 'dashboard-todo-list-widget' ),
 			array( $this, 'render' )
 		);
 	}
@@ -92,12 +92,12 @@ class MTZ_Todo_Dashboard {
 		<div id="mtz-todo-widget">
 			<div class="mtz-todo-toolbar">
 				<div class="mtz-todo-toolbar-left">
-					<button class="button button-primary" id="mtz-todo-add" type="button"><?php esc_html_e( 'Add To-Do', 'wordpress-dashboard-to-do-list' ); ?></button>
+					<button class="button button-primary" id="mtz-todo-add" type="button"><?php esc_html_e( 'Add To-Do', 'dashboard-todo-list-widget' ); ?></button>
 				</div>
 				<div class="mtz-todo-toolbar-right">
 					<label class="mtz-view-completed">
 						<input type="checkbox" id="mtz-view-completed">
-						<?php esc_html_e( 'View Completed', 'wordpress-dashboard-to-do-list' ); ?>
+						<?php esc_html_e( 'View Completed', 'dashboard-todo-list-widget' ); ?>
 					</label>
 				</div>
 			</div>
@@ -105,46 +105,46 @@ class MTZ_Todo_Dashboard {
 			<table class="widefat striped" id="mtz-todo-table">
 				<thead>
 					<tr>
-						<th class="mtz-sort" data-sort="title"><?php esc_html_e( 'To-Do', 'wordpress-dashboard-to-do-list' ); ?><span class="mtz-sort-icon"></span></th>
-						<th class="mtz-sort" data-sort="assigned_name"><?php esc_html_e( 'Assigned', 'wordpress-dashboard-to-do-list' ); ?><span class="mtz-sort-icon"></span></th>
-						<th class="mtz-sort" data-sort="due_date"><?php esc_html_e( 'Due', 'wordpress-dashboard-to-do-list' ); ?><span class="mtz-sort-icon"></span></th>
-						<th class="mtz-sort" data-sort="priority"><?php esc_html_e( 'Priority', 'wordpress-dashboard-to-do-list' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="title"><?php esc_html_e( 'To-Do', 'dashboard-todo-list-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="assigned_name"><?php esc_html_e( 'Assigned', 'dashboard-todo-list-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="due_date"><?php esc_html_e( 'Due', 'dashboard-todo-list-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="priority"><?php esc_html_e( 'Priority', 'dashboard-todo-list-widget' ); ?><span class="mtz-sort-icon"></span></th>
 					</tr>
 				</thead>
 				<tbody id="mtz-todo-body">
-					<tr><td colspan="4"><?php esc_html_e( 'Loading…', 'wordpress-dashboard-to-do-list' ); ?></td></tr>
+					<tr><td colspan="4"><?php esc_html_e( 'Loading…', 'dashboard-todo-list-widget' ); ?></td></tr>
 				</tbody>
 			</table>
 		</div>
 
 		<div id="mtz-todo-view-modal" style="display:none;">
 			<input type="hidden" id="mtz-view-task-id" />
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Title:', 'wordpress-dashboard-to-do-list' ); ?></strong> <span id="mtz-view-title"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Description:', 'wordpress-dashboard-to-do-list' ); ?></strong> <span id="mtz-view-description"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Title:', 'dashboard-todo-list-widget' ); ?></strong> <span id="mtz-view-title"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Description:', 'dashboard-todo-list-widget' ); ?></strong> <span id="mtz-view-description"></span></div>
 			<div class="mtz-view-line" id="mtz-view-related-row" style="display:none;">
-				<strong><?php esc_html_e( 'Related:', 'wordpress-dashboard-to-do-list' ); ?></strong>
+				<strong><?php esc_html_e( 'Related:', 'dashboard-todo-list-widget' ); ?></strong>
 				<a href="#" target="_blank" rel="noopener noreferrer" id="mtz-view-related-link"></a>
 			</div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Assigned:', 'wordpress-dashboard-to-do-list' ); ?></strong> <span id="mtz-view-assigned"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Due:', 'wordpress-dashboard-to-do-list' ); ?></strong> <span id="mtz-view-due"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Priority:', 'wordpress-dashboard-to-do-list' ); ?></strong> <span id="mtz-view-priority"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Completed:', 'wordpress-dashboard-to-do-list' ); ?></strong> <span id="mtz-view-completed-text"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Assigned:', 'dashboard-todo-list-widget' ); ?></strong> <span id="mtz-view-assigned"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Due:', 'dashboard-todo-list-widget' ); ?></strong> <span id="mtz-view-due"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Priority:', 'dashboard-todo-list-widget' ); ?></strong> <span id="mtz-view-priority"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Completed:', 'dashboard-todo-list-widget' ); ?></strong> <span id="mtz-view-completed-text"></span></div>
 		</div>
 
 		<div id="mtz-todo-modal" style="display:none;">
 			<input type="hidden" id="mtz-task-id" />
 			<input type="hidden" id="mtz-related-id" />
 
-			<label for="mtz-title"><?php esc_html_e( 'Title', 'wordpress-dashboard-to-do-list' ); ?></label>
+			<label for="mtz-title"><?php esc_html_e( 'Title', 'dashboard-todo-list-widget' ); ?></label>
 			<input type="text" id="mtz-title" />
 
-			<label for="mtz-description"><?php esc_html_e( 'Description', 'wordpress-dashboard-to-do-list' ); ?></label>
+			<label for="mtz-description"><?php esc_html_e( 'Description', 'dashboard-todo-list-widget' ); ?></label>
 			<textarea id="mtz-description"></textarea>
 
-			<label for="mtz-related-search"><?php esc_html_e( 'Related page or post', 'wordpress-dashboard-to-do-list' ); ?></label>
-			<input type="text" id="mtz-related-search" placeholder="<?php esc_attr_e( 'Search posts or pages…', 'wordpress-dashboard-to-do-list' ); ?>" />
+			<label for="mtz-related-search"><?php esc_html_e( 'Related page or post', 'dashboard-todo-list-widget' ); ?></label>
+			<input type="text" id="mtz-related-search" placeholder="<?php esc_attr_e( 'Search posts or pages…', 'dashboard-todo-list-widget' ); ?>" />
 
-			<label for="mtz-assigned-user"><?php esc_html_e( 'Assigned user', 'wordpress-dashboard-to-do-list' ); ?></label>
+			<label for="mtz-assigned-user"><?php esc_html_e( 'Assigned user', 'dashboard-todo-list-widget' ); ?></label>
 			<select id="mtz-assigned-user">
 				<?php foreach ( $users as $user ) : ?>
 					<option value="<?php echo esc_attr( $user->ID ); ?>">
@@ -153,21 +153,21 @@ class MTZ_Todo_Dashboard {
 				<?php endforeach; ?>
 			</select>
 
-			<label for="mtz-due-date"><?php esc_html_e( 'Due date', 'wordpress-dashboard-to-do-list' ); ?></label>
+			<label for="mtz-due-date"><?php esc_html_e( 'Due date', 'dashboard-todo-list-widget' ); ?></label>
 			<input type="date" id="mtz-due-date" />
 
-			<label for="mtz-priority"><?php esc_html_e( 'Priority', 'wordpress-dashboard-to-do-list' ); ?></label>
+			<label for="mtz-priority"><?php esc_html_e( 'Priority', 'dashboard-todo-list-widget' ); ?></label>
 			<select id="mtz-priority">
-				<option value="1"><?php esc_html_e( '1 (Highest)', 'wordpress-dashboard-to-do-list' ); ?></option>
+				<option value="1"><?php esc_html_e( '1 (Highest)', 'dashboard-todo-list-widget' ); ?></option>
 				<option value="2">2</option>
 				<option value="3" selected>3</option>
 				<option value="4">4</option>
-				<option value="5"><?php esc_html_e( '5 (Lowest)', 'wordpress-dashboard-to-do-list' ); ?></option>
+				<option value="5"><?php esc_html_e( '5 (Lowest)', 'dashboard-todo-list-widget' ); ?></option>
 			</select>
 
 			<div class="mtz-checkbox-row">
 				<input type="checkbox" id="mtz-completed" />
-				<label for="mtz-completed"><?php esc_html_e( 'Completed', 'wordpress-dashboard-to-do-list' ); ?></label>
+				<label for="mtz-completed"><?php esc_html_e( 'Completed', 'dashboard-todo-list-widget' ); ?></label>
 			</div>
 		</div>
 		<?php

@@ -29,8 +29,8 @@ class MTZ_Todo_CPT {
 			MTZ_TODO_CPT,
 			array(
 				'labels'              => array(
-					'name'          => __( 'To-Dos', 'wordpress-dashboard-to-do-list' ),
-					'singular_name' => __( 'To-Do', 'wordpress-dashboard-to-do-list' ),
+					'name'          => __( 'To-Dos', 'dashboard-todo-list-widget' ),
+					'singular_name' => __( 'To-Do', 'dashboard-todo-list-widget' ),
 				),
 				'public'              => false,
 				'show_ui'             => false,

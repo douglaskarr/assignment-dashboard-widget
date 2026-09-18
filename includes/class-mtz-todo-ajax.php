@@ -31,7 +31,7 @@ class MTZ_Todo_Ajax {
 	private function verify() {
 		check_ajax_referer( 'mtz_todo_nonce', 'nonce' );
 		if ( ! is_user_logged_in() || ! current_user_can( 'edit_posts' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Not allowed.', 'wordpress-dashboard-to-do-list' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Not allowed.', 'dashboard-todo-list-widget' ) ) );
 		}
 	}
 
@@ -71,6 +71,7 @@ class MTZ_Todo_Ajax {
 	 */
 	public function list_tasks() {
 		$this->verify();
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified in verify().
 
 		$include_completed = ! empty( $_POST['include_completed'] );
 
@@ -156,6 +157,7 @@ class MTZ_Todo_Ajax {
 		);
 
 		wp_send_json_success( $data );
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 	}
 
 	/**
@@ -163,16 +165,17 @@ class MTZ_Todo_Ajax {
 	 */
 	public function save_task() {
 		$this->verify();
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified in verify().
 
 		$id    = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 		$title = isset( $_POST['title'] ) ? sanitize_text_field( wp_unslash( $_POST['title'] ) ) : '';
 		if ( ! $title ) {
-			wp_send_json_error( array( 'message' => __( 'Title required', 'wordpress-dashboard-to-do-list' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Title required', 'dashboard-todo-list-widget' ) ) );
 		}
 
 		if ( $id ) {
 			if ( ! $this->can_access( $id ) ) {
-				wp_send_json_error( array( 'message' => __( 'Unauthorized', 'wordpress-dashboard-to-do-list' ) ) );
+				wp_send_json_error( array( 'message' => __( 'Unauthorized', 'dashboard-todo-list-widget' ) ) );
 			}
 			wp_update_post(
 				array(
@@ -191,7 +194,7 @@ class MTZ_Todo_Ajax {
 		}
 
 		if ( ! $id || is_wp_error( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Could not save to-do.', 'wordpress-dashboard-to-do-list' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Could not save to-do.', 'dashboard-todo-list-widget' ) ) );
 		}
 
 		$description = isset( $_POST['description'] ) ? sanitize_textarea_field( wp_unslash( $_POST['description'] ) ) : '';
@@ -209,6 +212,7 @@ class MTZ_Todo_Ajax {
 		update_post_meta( $id, '_mtz_related_post_id', $related_id );
 
 		wp_send_json_success();
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 	}
 
 	/**
@@ -216,6 +220,7 @@ class MTZ_Todo_Ajax {
 	 */
 	public function toggle_complete() {
 		$this->verify();
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified in verify().
 
 		$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 		if ( ! $this->can_access( $id ) ) {
@@ -223,6 +228,7 @@ class MTZ_Todo_Ajax {
 		}
 		update_post_meta( $id, '_mtz_completed', isset( $_POST['completed'] ) ? (int) $_POST['completed'] : 0 );
 		wp_send_json_success();
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 	}
 
 	/**
@@ -230,13 +236,15 @@ class MTZ_Todo_Ajax {
 	 */
 	public function delete_task() {
 		$this->verify();
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified in verify().
 
 		$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 		if ( ! $this->can_access( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Unauthorized', 'wordpress-dashboard-to-do-list' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Unauthorized', 'dashboard-todo-list-widget' ) ) );
 		}
 		wp_delete_post( $id, true );
 		wp_send_json_success();
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 	}
 
 	/**
@@ -244,6 +252,7 @@ class MTZ_Todo_Ajax {
 	 */
 	public function search_posts() {
 		$this->verify();
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified in verify().
 
 		$term = isset( $_POST['term'] ) ? sanitize_text_field( wp_unslash( $_POST['term'] ) ) : '';
 		if ( strlen( $term ) < 2 ) {
@@ -275,5 +284,6 @@ class MTZ_Todo_Ajax {
 		}
 
 		wp_send_json_success( $results );
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 	}
 }

@@ -1,9 +1,9 @@
-=== WordPress Dashboard To-Do List ===
+=== Dashboard To-Do List ===
 Contributors: douglaskarr
 Tags: dashboard, to-do, todo, tasks, widget
 Version: 1.0.0
 Stable tag: 1.0.0
-Tested up to: 7.1.1
+Tested up to: 7.1
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -14,7 +14,7 @@ A dashboard to-do list with assignments, priorities, due dates, related posts, a
 
 == Description ==
 
-WordPress Dashboard To-Do List keeps site maintenance tasks on the WordPress dashboard, where the work happens.
+Dashboard To-Do List keeps site maintenance tasks on the WordPress dashboard, where the work happens.
 
 Every time you log in, outstanding to-dos are visible, prioritized, and actionable. It is not a project-management platform. It is a focused dashboard reminder system.
 
@@ -34,7 +34,7 @@ Built by [DK New Media](https://dknewmedia.com/). Documentation: [Martech Zone](
 
 == Installation ==
 
-1. From Plugins → Add Plugin, search for WordPress Dashboard To-Do List, or upload the zip.
+1. From Plugins → Add Plugin, search for Dashboard To-Do List, or upload the zip.
 2. Activate the plugin.
 3. Open the Dashboard. The To-Do List widget is on that screen.
 

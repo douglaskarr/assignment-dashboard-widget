@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WordPress Dashboard To-Do List
+ * Plugin Name: Dashboard To-Do List
  * Plugin URI: https://martech.zone/wordpress-plugin-to-do-widget/
  * Description: A dashboard to-do list with assignments, priorities, due dates, related posts, and completion tracking. Lives on the WordPress dashboard.
  * Version: 1.0.0
@@ -10,7 +10,7 @@
  * Author URI: https://dknewmedia.com/
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: wordpress-dashboard-to-do-list
+ * Text Domain: dashboard-todo-list-widget
  *
  * @package WordPressDashboardToDoList
  */
@@ -28,14 +28,6 @@ require_once MTZ_TODO_PATH . 'includes/class-mtz-todo-cpt.php';
 require_once MTZ_TODO_PATH . 'includes/class-mtz-todo-dashboard.php';
 require_once MTZ_TODO_PATH . 'includes/class-mtz-todo-ajax.php';
 require_once MTZ_TODO_PATH . 'includes/class-mtz-todo-adminbar.php';
-
-/**
- * Load translations.
- */
-function mtz_todo_load_textdomain() {
-	load_plugin_textdomain( 'wordpress-dashboard-to-do-list', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-add_action( 'plugins_loaded', 'mtz_todo_load_textdomain' );
 
 new MTZ_Todo_CPT();
 new MTZ_Todo_Dashboard();

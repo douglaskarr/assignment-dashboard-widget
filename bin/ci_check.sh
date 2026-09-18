@@ -3,14 +3,14 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-php -l wordpress-dashboard-to-do-list.php >/dev/null
+php -l dashboard-todo-list-widget.php >/dev/null
 php -l uninstall.php >/dev/null
 for f in includes/*.php; do
 	php -l "$f" >/dev/null
 done
 
 header_version="$(php -r '
-$src = file_get_contents("wordpress-dashboard-to-do-list.php");
+$src = file_get_contents("dashboard-todo-list-widget.php");
 preg_match("/^\s*\*\s*Version:\s*(.+)$/m", $src, $m);
 echo trim($m[1]);
 ')"
@@ -31,3 +31,4 @@ if [[ "$header_version" != "$readme_version" || "$header_version" != "$stable" ]
 fi
 
 echo "ci_check: ok ($header_version)"
+echo "Before publishing, run: bash ../bin/run-plugin-check.sh ."

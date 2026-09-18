@@ -30,7 +30,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SLUG: wordpress-dashboard-to-do-list
+          SLUG: dashboard-todo-list-widget
           ASSETS_DIR: .wordpress-org
 
       - name: Attach zip to GitHub release

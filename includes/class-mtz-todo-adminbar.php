@@ -37,7 +37,7 @@ class MTZ_Todo_AdminBar {
 		$wp_admin_bar->add_node(
 			array(
 				'id'    => 'mtz-todo-adminbar',
-				'title' => '<span class="ab-label">' . esc_html__( 'To-Do', 'wordpress-dashboard-to-do-list' ) . '</span><span class="mtz-todo-count" style="display:none;">0</span>',
+				'title' => '<span class="ab-label">' . esc_html__( 'To-Do', 'dashboard-todo-list-widget' ) . '</span><span class="mtz-todo-count" style="display:none;">0</span>',
 				'href'  => admin_url( 'index.php' ),
 				'meta'  => array(
 					'class' => 'mtz-todo-adminbar-node',
