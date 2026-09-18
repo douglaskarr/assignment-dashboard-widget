@@ -32,7 +32,7 @@ class MTZ_Todo_Dashboard {
 
 		wp_add_dashboard_widget(
 			'mtz_todo_widget',
-			__( 'To-Do List', 'todo-dashboard-widget' ),
+			__( 'Assignments', 'assignment-dashboard-widget' ),
 			array( $this, 'render' )
 		);
 	}
@@ -92,12 +92,12 @@ class MTZ_Todo_Dashboard {
 		<div id="mtz-todo-widget">
 			<div class="mtz-todo-toolbar">
 				<div class="mtz-todo-toolbar-left">
-					<button class="button button-primary" id="mtz-todo-add" type="button"><?php esc_html_e( 'Add To-Do', 'todo-dashboard-widget' ); ?></button>
+					<button class="button button-primary" id="mtz-todo-add" type="button"><?php esc_html_e( 'Add To-Do', 'assignment-dashboard-widget' ); ?></button>
 				</div>
 				<div class="mtz-todo-toolbar-right">
 					<label class="mtz-view-completed">
 						<input type="checkbox" id="mtz-view-completed">
-						<?php esc_html_e( 'View Completed', 'todo-dashboard-widget' ); ?>
+						<?php esc_html_e( 'View Completed', 'assignment-dashboard-widget' ); ?>
 					</label>
 				</div>
 			</div>
@@ -105,46 +105,46 @@ class MTZ_Todo_Dashboard {
 			<table class="widefat striped" id="mtz-todo-table">
 				<thead>
 					<tr>
-						<th class="mtz-sort" data-sort="title"><?php esc_html_e( 'To-Do', 'todo-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
-						<th class="mtz-sort" data-sort="assigned_name"><?php esc_html_e( 'Assigned', 'todo-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
-						<th class="mtz-sort" data-sort="due_date"><?php esc_html_e( 'Due', 'todo-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
-						<th class="mtz-sort" data-sort="priority"><?php esc_html_e( 'Priority', 'todo-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="title"><?php esc_html_e( 'To-Do', 'assignment-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="assigned_name"><?php esc_html_e( 'Assigned', 'assignment-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="due_date"><?php esc_html_e( 'Due', 'assignment-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
+						<th class="mtz-sort" data-sort="priority"><?php esc_html_e( 'Priority', 'assignment-dashboard-widget' ); ?><span class="mtz-sort-icon"></span></th>
 					</tr>
 				</thead>
 				<tbody id="mtz-todo-body">
-					<tr><td colspan="4"><?php esc_html_e( 'Loading…', 'todo-dashboard-widget' ); ?></td></tr>
+					<tr><td colspan="4"><?php esc_html_e( 'Loading…', 'assignment-dashboard-widget' ); ?></td></tr>
 				</tbody>
 			</table>
 		</div>
 
 		<div id="mtz-todo-view-modal" style="display:none;">
 			<input type="hidden" id="mtz-view-task-id" />
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Title:', 'todo-dashboard-widget' ); ?></strong> <span id="mtz-view-title"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Description:', 'todo-dashboard-widget' ); ?></strong> <span id="mtz-view-description"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Title:', 'assignment-dashboard-widget' ); ?></strong> <span id="mtz-view-title"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Description:', 'assignment-dashboard-widget' ); ?></strong> <span id="mtz-view-description"></span></div>
 			<div class="mtz-view-line" id="mtz-view-related-row" style="display:none;">
-				<strong><?php esc_html_e( 'Related:', 'todo-dashboard-widget' ); ?></strong>
+				<strong><?php esc_html_e( 'Related:', 'assignment-dashboard-widget' ); ?></strong>
 				<a href="#" target="_blank" rel="noopener noreferrer" id="mtz-view-related-link"></a>
 			</div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Assigned:', 'todo-dashboard-widget' ); ?></strong> <span id="mtz-view-assigned"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Due:', 'todo-dashboard-widget' ); ?></strong> <span id="mtz-view-due"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Priority:', 'todo-dashboard-widget' ); ?></strong> <span id="mtz-view-priority"></span></div>
-			<div class="mtz-view-line"><strong><?php esc_html_e( 'Completed:', 'todo-dashboard-widget' ); ?></strong> <span id="mtz-view-completed-text"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Assigned:', 'assignment-dashboard-widget' ); ?></strong> <span id="mtz-view-assigned"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Due:', 'assignment-dashboard-widget' ); ?></strong> <span id="mtz-view-due"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Priority:', 'assignment-dashboard-widget' ); ?></strong> <span id="mtz-view-priority"></span></div>
+			<div class="mtz-view-line"><strong><?php esc_html_e( 'Completed:', 'assignment-dashboard-widget' ); ?></strong> <span id="mtz-view-completed-text"></span></div>
 		</div>
 
 		<div id="mtz-todo-modal" style="display:none;">
 			<input type="hidden" id="mtz-task-id" />
 			<input type="hidden" id="mtz-related-id" />
 
-			<label for="mtz-title"><?php esc_html_e( 'Title', 'todo-dashboard-widget' ); ?></label>
+			<label for="mtz-title"><?php esc_html_e( 'Title', 'assignment-dashboard-widget' ); ?></label>
 			<input type="text" id="mtz-title" />
 
-			<label for="mtz-description"><?php esc_html_e( 'Description', 'todo-dashboard-widget' ); ?></label>
+			<label for="mtz-description"><?php esc_html_e( 'Description', 'assignment-dashboard-widget' ); ?></label>
 			<textarea id="mtz-description"></textarea>
 
-			<label for="mtz-related-search"><?php esc_html_e( 'Related page or post', 'todo-dashboard-widget' ); ?></label>
-			<input type="text" id="mtz-related-search" placeholder="<?php esc_attr_e( 'Search posts or pages…', 'todo-dashboard-widget' ); ?>" />
+			<label for="mtz-related-search"><?php esc_html_e( 'Related page or post', 'assignment-dashboard-widget' ); ?></label>
+			<input type="text" id="mtz-related-search" placeholder="<?php esc_attr_e( 'Search posts or pages…', 'assignment-dashboard-widget' ); ?>" />
 
-			<label for="mtz-assigned-user"><?php esc_html_e( 'Assigned user', 'todo-dashboard-widget' ); ?></label>
+			<label for="mtz-assigned-user"><?php esc_html_e( 'Assigned user', 'assignment-dashboard-widget' ); ?></label>
 			<select id="mtz-assigned-user">
 				<?php foreach ( $users as $user ) : ?>
 					<option value="<?php echo esc_attr( $user->ID ); ?>">
@@ -153,21 +153,21 @@ class MTZ_Todo_Dashboard {
 				<?php endforeach; ?>
 			</select>
 
-			<label for="mtz-due-date"><?php esc_html_e( 'Due date', 'todo-dashboard-widget' ); ?></label>
+			<label for="mtz-due-date"><?php esc_html_e( 'Due date', 'assignment-dashboard-widget' ); ?></label>
 			<input type="date" id="mtz-due-date" />
 
-			<label for="mtz-priority"><?php esc_html_e( 'Priority', 'todo-dashboard-widget' ); ?></label>
+			<label for="mtz-priority"><?php esc_html_e( 'Priority', 'assignment-dashboard-widget' ); ?></label>
 			<select id="mtz-priority">
-				<option value="1"><?php esc_html_e( '1 (Highest)', 'todo-dashboard-widget' ); ?></option>
+				<option value="1"><?php esc_html_e( '1 (Highest)', 'assignment-dashboard-widget' ); ?></option>
 				<option value="2">2</option>
 				<option value="3" selected>3</option>
 				<option value="4">4</option>
-				<option value="5"><?php esc_html_e( '5 (Lowest)', 'todo-dashboard-widget' ); ?></option>
+				<option value="5"><?php esc_html_e( '5 (Lowest)', 'assignment-dashboard-widget' ); ?></option>
 			</select>
 
 			<div class="mtz-checkbox-row">
 				<input type="checkbox" id="mtz-completed" />
-				<label for="mtz-completed"><?php esc_html_e( 'Completed', 'todo-dashboard-widget' ); ?></label>
+				<label for="mtz-completed"><?php esc_html_e( 'Completed', 'assignment-dashboard-widget' ); ?></label>
 			</div>
 		</div>
 		<?php

@@ -3,14 +3,14 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-php -l todo-dashboard-widget.php >/dev/null
+php -l assignment-dashboard-widget.php >/dev/null
 php -l uninstall.php >/dev/null
 for f in includes/*.php; do
 	php -l "$f" >/dev/null
 done
 
 header_version="$(php -r '
-$src = file_get_contents("todo-dashboard-widget.php");
+$src = file_get_contents("assignment-dashboard-widget.php");
 preg_match("/^\s*\*\s*Version:\s*(.+)$/m", $src, $m);
 echo trim($m[1]);
 ')"

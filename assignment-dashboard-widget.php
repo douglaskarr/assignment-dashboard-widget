@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: To-Do Dashboard Widget
+ * Plugin Name: Assignment Dashboard Widget
  * Plugin URI: https://martech.zone/wordpress-plugin-to-do-widget/
- * Description: A dashboard to-do list with assignments, priorities, due dates, related posts, and completion tracking. Lives on the WordPress dashboard.
+ * Description: Assign dashboard tasks to authors and other users. Priorities, due dates, related posts, and completion tracking on the WordPress dashboard.
  * Version: 1.0.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
@@ -10,7 +10,7 @@
  * Author URI: https://dknewmedia.com/
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: todo-dashboard-widget
+ * Text Domain: assignment-dashboard-widget
  *
  * @package WordPressDashboardToDoList
  */
