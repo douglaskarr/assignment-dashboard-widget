@@ -2,7 +2,7 @@
 
 Dashboard widget for site-maintenance to-dos: assign users, set priority and due dates, link a related post, and mark complete.
 
-The public name and slug cannot include the trademarked term “WordPress” (Plugin Check / directory policy). Directory slug: `dashboard-todo-list-widget`.
+The public name and slug cannot include the trademarked term “WordPress” (Plugin Check / directory policy). Directory slug: `todo-dashboard-widget`.
 
 - Docs: https://martech.zone/wordpress-plugin-to-do-widget/
 
@@ -26,5 +26,5 @@ CI runs the same checks via [wordpress/plugin-check-action](https://github.com/W
 
 1. Pass Plugin Check (no errors).
 2. Zip the plugin folder (or use `git archive`).
-3. Submit the zip at https://wordpress.org/plugins/developers/add/ while logged in as `douglaskarr` (slug `dashboard-todo-list-widget`).
+3. Submit the zip at https://wordpress.org/plugins/developers/add/ while logged in as `douglaskarr` (slug `todo-dashboard-widget`).
 4. After the review email, publish a GitHub Release whose tag matches `Stable tag`.

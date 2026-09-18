@@ -31,7 +31,7 @@ class MTZ_Todo_Ajax {
 	private function verify() {
 		check_ajax_referer( 'mtz_todo_nonce', 'nonce' );
 		if ( ! is_user_logged_in() || ! current_user_can( 'edit_posts' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Not allowed.', 'dashboard-todo-list-widget' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Not allowed.', 'todo-dashboard-widget' ) ) );
 		}
 	}
 
@@ -170,12 +170,12 @@ class MTZ_Todo_Ajax {
 		$id    = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 		$title = isset( $_POST['title'] ) ? sanitize_text_field( wp_unslash( $_POST['title'] ) ) : '';
 		if ( ! $title ) {
-			wp_send_json_error( array( 'message' => __( 'Title required', 'dashboard-todo-list-widget' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Title required', 'todo-dashboard-widget' ) ) );
 		}
 
 		if ( $id ) {
 			if ( ! $this->can_access( $id ) ) {
-				wp_send_json_error( array( 'message' => __( 'Unauthorized', 'dashboard-todo-list-widget' ) ) );
+				wp_send_json_error( array( 'message' => __( 'Unauthorized', 'todo-dashboard-widget' ) ) );
 			}
 			wp_update_post(
 				array(
@@ -194,7 +194,7 @@ class MTZ_Todo_Ajax {
 		}
 
 		if ( ! $id || is_wp_error( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Could not save to-do.', 'dashboard-todo-list-widget' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Could not save to-do.', 'todo-dashboard-widget' ) ) );
 		}
 
 		$description = isset( $_POST['description'] ) ? sanitize_textarea_field( wp_unslash( $_POST['description'] ) ) : '';
@@ -240,7 +240,7 @@ class MTZ_Todo_Ajax {
 
 		$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 		if ( ! $this->can_access( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Unauthorized', 'dashboard-todo-list-widget' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Unauthorized', 'todo-dashboard-widget' ) ) );
 		}
 		wp_delete_post( $id, true );
 		wp_send_json_success();
